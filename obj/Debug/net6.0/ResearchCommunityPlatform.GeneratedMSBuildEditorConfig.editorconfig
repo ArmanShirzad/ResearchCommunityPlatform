@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\a_shi\source\repos\ResearchCommunityPlatform
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/SocialMediaLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTb2NpYWxNZWRpYUxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

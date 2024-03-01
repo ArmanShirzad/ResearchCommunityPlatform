@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-blue-700 h-screen flex justify-center items-center">
+    <div class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-8 text-center">Log in to account</h2>
+        <div class="flex flex-col space-y-4">
+            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                <i class="fab fa-orcid"></i>
+                <span class="ml-2">Sign in with ORCID</span>
+            </button>
+            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                <i class="fab fa-github"></i>
+                <span class="ml-2">Sign in with GitHub</span>
+            </button>
+            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                <i class="fab fa-google"></i>
+                <span class="ml-2">Sign in with Google</span>
+            </button>
+            <div class="relative flex py-5 items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="flex-shrink mx-4 text-gray-400">OR</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+            <div class="space-y-4">
+                <input type="email" placeholder="Email Address" class="w-full p-2 border rounded text-black border-gray-300">
+                <input type="password" placeholder="Password" class="w-full p-2 border rounded text-black border-gray-300">
+                <button class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Log in</button>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                New to Research Geek? <a href="#" class="text-blue-500 hover:underline">Sign up</a>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                <a href="#" class="text-blue-500 hover:underline">Privacy notice</a>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                <a href="#" class="text-blue-500 hover:underline">Forgot password?</a>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                <a href="#" class="text-blue-500 hover:underline">Resend confirmation email</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

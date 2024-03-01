@@ -2,7 +2,108 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link href="~/css/SwiperJs.css" rel="stylesheet" />
+
+<!-- Featured Communities Slider -->
+
+<section class="container mx-auto mt-8">
+    <h2 class="text-3xl font-bold mb-4">Featured communities</h2>
+
+    <!-- Swiper container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <img src="~/Content/data1.jpg" alt="Community" />
+                <div class="text-content">
+                    <h3 class="text-xl font-bold text-gray-700">Get Maximum Productiviy for your Research project collaborate and review publications</h3>
+                    <p class="text-sm mb-2 text-gray-600"> project assembles the largest and most diverse research...</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Browse Archive</button>
+                </div>
+            </div>
+            <!-- Repeat for more slides -->
+            <div class="swiper-slide">
+                <img src="~/Content/Slider2.jpg" alt="research" />
+                <div class="text-content">
+                    <h3 class="text-xl font-bold text-gray-700">Get Real Time Statistics with Scopus and Web Science </h3>
+                    <p class="text-sm mb-2 text-gray-600"> Reivero Stays in touch with real time analysis of trending topics from popular world archives</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover\:bg-orange-500">Try Demo</button>
+                </div>
+            </div>
+
+        </div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+
+
+    </div>
+
+</section>
+
+
+<!-- Recent Uploads -->
+<section class="container mx-auto mt-8">
+    <h2 class="text-3xl font-bold mb-4">Recent uploads</h2>
+    @for (int i = 0; i < 10; i++)
+    {
+        <div class="bg-white shadow rounded p-4 mb-4">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm text-green-600">
+                    <!-- Date and version, replace with dynamic content -->
+                    February 29, 2024 (v1)
+                </span>
+                <span class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded">Open</span>
+            </div>
+            <h3 class="text-lg font-bold">
+                <!-- Title, replace with dynamic content -->
+                HRMS files obtained from the analysis of polyethylene microplastics exposed to the Mediterranean Sea for 8 weeks
+            </h3>
+            <p class="text-sm">
+                <!-- Authors, replace with dynamic content -->
+                López-Vázquez, Javier (D); Rodil, Rosario (D); Álvarez, Elvira
+            </p>
+            <!-- Add more details as per your content -->
+        </div>
+    }
+
+    <!-- Show More Button -->
+    <div class="text-center mt-4">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+            Show More
+        </button>
+    </div>
+    <!-- Repeat the above block for each recent upload -->
+
+</section>
+<!-- Add other sections as needed -->
+
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If you want to use pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if you want to add scrollbar
+
+    });
+</script>
