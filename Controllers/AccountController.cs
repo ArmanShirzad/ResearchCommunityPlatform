@@ -7,7 +7,8 @@ using ResearchCommunityPlatform.Models;
 
 namespace ResearchCommunityPlatform.Controllers
 {
-    public class LoginController : Controller
+    [Controller]
+    public class AccountController : Controller
     {
 
         public IActionResult Login(string returnUrl = "/dashboard")
@@ -29,9 +30,13 @@ namespace ResearchCommunityPlatform.Controllers
             // On success, redirect to returnUrl
             return Ok();
         }
+        public async Task<IActionResult> SocialMediaLogin() 
+        {
+            return View();
+        }
 
-        // Dashboard action
-        [Authorize]
+       // Dashboard action
+       [Authorize]
         public IActionResult Dashboard()
         {
             return View();

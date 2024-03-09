@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "28GGOGH+zws0TeJdn86c3JB9iv0GO08ROgSFi+VqMgM=",
+  "Hash": "LmC2aRBcSiwRgd5bvjEktAvHWlqS32eS5zbwVZQclVs=",
   "Source": "ResearchCommunityPlatform",
   "BasePath": "_content/ResearchCommunityPlatform",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ResearchCommunityPlatform.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Assets\\ERD.png",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "Assets/ERD.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\ERD.png"
     },
     {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Content\\data1.jpg",
@@ -2157,6 +2174,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\swiper\\swiper.min.css",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "swiper/swiper.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\swiper\\swiper.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\swiper\\swiper.min.js",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "swiper/swiper.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\swiper\\swiper.min.js"
     }
   ]
 }

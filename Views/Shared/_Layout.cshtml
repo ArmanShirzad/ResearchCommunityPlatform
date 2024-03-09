@@ -7,7 +7,6 @@
     @*<script src="https://cdn.tailwindcss.com"></script>*@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="~/css/HamBurger.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
 </head>
 <body class="flex flex-col h-full bg-gray-100  text-gray-900">
@@ -25,8 +24,8 @@
                             </div>
                             <!-- primary nav -->
                             <div class="hidden md:flex items-center space-x-1">
-                                <a href="#" class="py-5 px-3 text-white">Communities</a>
-                                <a href="#" class="py-5 px-3 text-white">My Dashboard</a>
+                                <a  asp-controller="Account" asp-action="SocialMediaLogin" class="py-5 px-3 text-white">Communities</a>
+                                <a  asp-controller="Account" asp-action="SocialMediaLogin" class="py-5 px-3 text-white">My Dashboard</a>
                             </div>
                         </div>
                         <!-- secondary nav -->
@@ -53,8 +52,8 @@
                 <!-- mobile menu -->
                 <div class="mobile-menu hidden md:hidden" id="mobileMenu">
                     <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Communities</a>
-                    <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">My Dashboard</a>
-                    <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Log in</a>
+                    <a asp-controller="Account" asp-action="SocialMediaLogin" class="block py-2 px-4 text-sm hover:bg-blue-800">My Dashboard</a>
+                    <a href="google.com" class="block py-2 px-4 text-sm hover:bg-blue-800">Log in</a>
                     <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Sign up</a>
                 </div>
             </nav>
