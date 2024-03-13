@@ -9,7 +9,16 @@ namespace ResearchCommunityPlatform.Models
         {
 
         }
-        //dbsets - onModelCreating
+       
+        public DbSet<Publication> Publications;
+        public DbSet<PublicationCreator> PublicationCreators;
+        public DbSet<File> Files;
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PublicationCreator>()
+                .HasKey(pc => new { pc.PublicationId, pc.UserID });
+        }
     }
+
 }

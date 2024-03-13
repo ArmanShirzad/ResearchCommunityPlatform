@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using T =Microsoft.Extensions.Configuration;
+using ResearchCommunityPlatform.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AppDbContext>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("MainConnection")));
 builder.Services.AddAuthentication()
     .AddGoogle(opts =>
     {
@@ -25,6 +31,7 @@ builder.Services.AddAuthentication()
     });     
 // Add other providers as needed
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 

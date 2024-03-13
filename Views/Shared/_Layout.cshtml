@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@ViewData["Title"] - Research GeekClone</title>
     @*<script src="https://cdn.tailwindcss.com"></script>*@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
@@ -18,8 +19,8 @@
                         <div class="flex space-x-4">
                             <!-- logo -->
                             <div>
-                                <a href="#" class="flex items-center py-5 px-2 text-white">
-                                    <span class="font-bold">Research Geek</span>
+                                <a asp-controller="Home" asp-action="Index" class="flex items-center py-5 px-2 text-white">
+                                    <span class="font-bold" >Research Geek</span>
                                 </a>
                             </div>
                             <!-- primary nav -->
@@ -30,7 +31,7 @@
                         </div>
                         <!-- secondary nav -->
                         <div class="hidden md:flex items-center space-x-1">
-                            <button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                            <button  id="bttest" asp-controller="Account" asp-action="SocialMediaLogin" class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                                 Log in
                             </button>
 
@@ -113,7 +114,7 @@
         </div>
         <div class="bg-[#0045a2] w-full">
             <div class="container mx-auto py-4 text-white text-center">
-                Powered by CERN Data Centre & InvenioRDM
+                Powered by <a href="https://www.linkedin.com/in/arman-shirzad/">Arman Shirzad</a>
             </div>
         </div>
     </footer>
@@ -127,6 +128,13 @@
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
+
+        document.getElementById('bttest').addEventListener('click', function () {
+            // Directly navigate to the Account/SocialMediaLogin action
+            window.location.href = '/Account/SocialMediaLogin';
+        });
+
+
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
