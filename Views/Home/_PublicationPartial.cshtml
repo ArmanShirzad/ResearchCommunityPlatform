@@ -1,0 +1,53 @@
+﻿<!--_PublicationPartial.cshtml -->
+@model IEnumerable<ResearchCommunityPlatform.Models.PublicationViewModel>
+
+@foreach (var publication in Model)
+{
+    <div class="publication-record bg-white shadow rounded p-4 mb-4" data-id="@publication.PublicationId">
+        <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">
+                Uploaded on @publication.UploadDate
+            </span>
+            <span class="status-tag bg-green-200 text-green-800 text-xs px-2 py-1 rounded">
+                @publication.PubType
+            </span>
+        </div>
+        <h3 class="publication-title text-lg font-bold mb-1">
+            <a href="@Url.Action("GetPublicationById", "Home", new { id = publication.PublicationId })" class="text-blue-600 hover:text-blue-700">
+                @publication.Title
+            </a>
+        </h3>
+        <p class="publication-authors text-sm mb-1">
+            <strong>Authors:</strong>
+            @if (publication.Authors != null && publication.Authors.Any())
+            {
+                @string.Join(", ", publication.Authors)
+            }
+            else
+            {
+                <text>No authors listed</text>
+            }
+        </p>
+        <p class="publication-doi text-sm mb-1">
+            @if (!string.IsNullOrWhiteSpace(publication.DOI))
+            {
+                <text>DOI: @publication.DOI</text>
+            }
+            else
+            {
+                <text>DOI not available</text>
+            }
+        </p>
+        <p class="publication-description text-sm">
+            @publication.Description
+        </p>
+        <div class="flex items-center mt-2">
+            <span class="download-count text-gray-700 text-sm mr-4">
+                <i class="fa fa-download mr-1"></i> 32
+            </span>
+            <span class="like-count text-gray-700 text-sm">
+                <i class="fa fa-thumbs-up mr-1"></i> 1
+            </span>
+        </div>
+    </div>
+}

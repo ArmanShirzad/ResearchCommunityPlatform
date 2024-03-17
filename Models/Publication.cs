@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace ResearchCommunityPlatform.Models
 {
@@ -7,14 +10,21 @@ namespace ResearchCommunityPlatform.Models
     {
         [Key]
         public int PublicationId { get; set; }
-        public int UserId { get; set; } //fk
+        public string UserId { get; set; } //fk
         [Required]
         [StringLength(255)]
         public string Title { get; set; }
         [DisplayName("DOI")]
-        public long DOI { get; set; }
+        public string DOI { get; set; }
         public string Description { get; set; } // first 30 words of the abstract
+        public string AuthorsSerialized { get; set; } // JSON serialized list of authors
 
+        [NotMapped] // This attribute prevents EF Core from trying to map this property to the database.
+        public List<string> Authors
+        {
+            get => string.IsNullOrEmpty(AuthorsSerialized) ? new List<string>() : JsonConvert.DeserializeObject<List<string>>(AuthorsSerialized);
+            set => AuthorsSerialized = JsonConvert.SerializeObject(value);
+        }
         public string DateOfPublish { get; set; }
         public string UploadDate { get; set; }
         public string PubType { get; set; } //journal or conferance

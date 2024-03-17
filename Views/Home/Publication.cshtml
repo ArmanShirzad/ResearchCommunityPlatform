@@ -1,0 +1,40 @@
+﻿@model PublicationViewModel
+
+<div class="container mx-auto mt-8">
+    <div class="bg-white shadow rounded p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-3">@Model.Title</h2>
+        <div class="mb-2">
+            <span class="text-sm text-gray-600">
+                Published on @Model.DateOfPublish
+            </span>
+        </div>
+        <div class="mb-4">
+            <span class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded">
+                @Model.PubType
+            </span>
+        </div>
+        <p class="mb-2">
+            <strong>DOI:</strong> @Model.DOI
+        </p>
+        <p class="mb-4">
+            <strong>Description:</strong> @Model.Description
+        </p>
+        <p class="mb-4">
+            <strong>Authors:</strong> @string.Join(", ", Model.Authors)
+        </p>
+        <!-- Here you can add a section to display associated files if any -->
+        <div>
+            <h3 class="text-lg font-bold mb-2">Files</h3>
+            @foreach (var file in Model.Files) // Ensure that this matches the property name in PublicationViewModel
+            {
+                <div>
+                    <!-- Provide the file download link using the FilePath and display the FileName -->
+                 
+                    <a href="@Url.Content(file.FilePath)" target="_blank" style="color: #2AB9FD;" >@file.FileName</a>
+
+                </div>
+            }
+        </div>
+        <!-- Here you can add a section for other details like views, downloads, etc. -->
+    </div>
+</div>

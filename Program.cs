@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
            options.UseSqlServer(builder.Configuration.GetConnectionString("MainConnection")));
 builder.Services.AddAuthentication()
     .AddGoogle(opts =>
+
     {
         opts.ClientId = "google-client-id";
         opts.ClientSecret = "google-client-secret";

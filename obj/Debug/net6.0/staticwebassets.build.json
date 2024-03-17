@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LmC2aRBcSiwRgd5bvjEktAvHWlqS32eS5zbwVZQclVs=",
+  "Hash": "RYZ/neHWnxDILu7jdGZZNmAwylzfWt5hoNiV5PwaQaE=",
   "Source": "ResearchCommunityPlatform",
   "BasePath": "_content/ResearchCommunityPlatform",
   "Mode": "Default",
@@ -1088,6 +1088,23 @@
       "OriginalItemSpec": "wwwroot\\Assets\\ERD.png"
     },
     {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Assets\\Specialist for research data management_ Data Steward for data management in WetNetBB (m_f_d) (100 %).pdf",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "Assets/Specialist for research data management_ Data Steward for data management in WetNetBB (m_f_d) (100 %).pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\Specialist for research data management_ Data Steward for data management in WetNetBB (m_f_d) (100 %).pdf"
+    },
+    {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Content\\data1.jpg",
       "SourceId": "ResearchCommunityPlatform",
       "SourceType": "Discovered",
@@ -1188,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Files\\pub -1.pdf",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "Files/pub -1.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\pub -1.pdf"
     },
     {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\js\\site.js",
