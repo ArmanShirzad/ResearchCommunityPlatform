@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lJh+bH30Xe1YMAonLkY0lWY+sWE1p8n5NmQjO+Mjtn8=",
+  "Hash": "t2Hh268WztTXjIdH3l1JVfAsdlYoousfphehDVjcX4s=",
   "Source": "ResearchCommunityPlatform",
   "BasePath": "_content/ResearchCommunityPlatform",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\Content\\data1.jpg"
     },
     {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Content\\ocrtest.png",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "Content/ocrtest.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\ocrtest.png"
+    },
+    {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Content\\Slider2.jpg",
       "SourceId": "ResearchCommunityPlatform",
       "SourceType": "Discovered",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\Slider2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\css\\Index-IndexPartial-ShowMoreBtnAndCite.css",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "css/Index-IndexPartial-ShowMoreBtnAndCite.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Index-IndexPartial-ShowMoreBtnAndCite.css"
     },
     {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\css\\site.css",
@@ -1207,12 +1241,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Files\\pub -1.pdf",
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\Files\\user1pub001.pdf",
       "SourceId": "ResearchCommunityPlatform",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
       "BasePath": "_content/ResearchCommunityPlatform",
-      "RelativePath": "Files/pub -1.pdf",
+      "RelativePath": "Files/user1pub001.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1221,7 +1255,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\pub -1.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\user1pub001.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\js\\Index-IndexPartial-ShowMoreBtnAndCite.js",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "js/Index-IndexPartial-ShowMoreBtnAndCite.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Index-IndexPartial-ShowMoreBtnAndCite.js"
     },
     {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\js\\site.js",

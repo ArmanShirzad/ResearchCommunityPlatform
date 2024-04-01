@@ -4,14 +4,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<link href="~/css/SwiperJs.css" rel="stylesheet" />
 
+
+<link href="~/css/SwiperJs.css" rel="stylesheet" />
 <link href="~/swiper/swiper.min.css" rel="stylesheet" />
+<link href="~/css/Index-IndexPartial-ShowMoreBtnAndCite.css" rel="stylesheet" />
 <script src="~/swiper/swiper.min.js"></script>
 <!-- Featured Communities Slider -->
 
 <section class="container mx-auto mt-8">
-    <h2 class="text-3xl font-bold mb-4">Featured communities</h2>
+    <h2 class="text-3xl font-bold mb-4">Features</h2>
 
     <!-- Swiper container -->
     <div class="swiper-container">
@@ -19,20 +21,22 @@
         <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide">
-                <img src="~/Content/data1.jpg" alt="Community" />
+                <img src="~/Content/Slider2.jpg" alt="DOI" />
+                    
                 <div class="text-content">
-                    <h3 class="text-xl font-bold text-gray-700">Get Maximum Productiviy for your Research project collaborate and review publications</h3>
-                    <p class="text-sm mb-2 text-gray-600"> project assembles the largest and most diverse research...</p>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Browse Archive</button>
+                    <h3 class="text-xl font-bold text-gray-700">Instantly Assign DOIs to Your Research Publications </h3>
+                    <p class="text-sm mb-2 text-gray-600"> Research Geek Stays in touch with real time DOI assignment to your publication upon upload</p>
+                    <button  onclick="NavigateToDashboard()" class="bg-green-200 text-green-800 hover:bg-gray-400  font-bold py-2 px-4 rounded">Go to Dashboard </button>
+
                 </div>
             </div>
             <!-- Repeat for more slides -->
             <div class="swiper-slide">
-                <img src="~/Content/Slider2.jpg" alt="research" />
+                <img src="~/Content/data1.jpg" alt="Community" />
                 <div class="text-content">
-                    <h3 class="text-xl font-bold text-gray-700">Get Real Time Statistics with Scopus and Web of Science </h3>
-                    <p class="text-sm mb-2 text-gray-600"> Research Geek Stays in touch with real time analysis of trending topics from popular world archives</p>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover\:bg-orange-500">Try Demo</button>
+                    <h3 class="text-xl font-bold text-gray-700">Get Maximum Productiviy for your Research project collaborate and review publications</h3>
+                    <p class="text-sm mb-2 text-gray-600"> project assembles the largest and most diverse research...</p>
+                    <button class="bg-green-200 text-green-800 font-bold   px-4 py-2 rounded hover:bg-gray-400" >Browse Archive</button>
                 </div>
             </div>
 
@@ -54,7 +58,10 @@
     <h2 class="text-3xl font-bold mb-4">Recent uploads</h2>
     @foreach (var publication in Model.Publications)
     {
-        <div class="publication-record bg-white shadow rounded p-4 mb-4" data-id="@publication.PublicationId">
+        <div class="publication-record bg-white shadow rounded p-4 mb-4"
+             data-id="@publication.PublicationId"
+             data-doi="@publication.DOI"
+             data-date-of-publish="@publication.DateOfPublish">
             <div class="flex justify-between items-center mb-2">
                 <span class="text-sm text-gray-600">
                     Uploaded on @publication.UploadDate
@@ -73,11 +80,17 @@
                 @(publication.Authors != null ? string.Join(", ", publication.Authors) : "No authors listed")
             </p>
             <p class="publication-doi text-sm mb-1">
-                DOI: @publication.DOI
+                <strong> DOI:</strong>
+                @publication.DOI
+            </p>
+            <p class="publication-date text-sm mb-1">
+                <strong>Year:</strong>
+                @publication.DateOfPublish
             </p>
             <p class="publication-description text-sm">
                 @publication.Description
             </p>
+
             <div class="flex items-center mt-2">
                 <span class="download-count text-gray-700 text-sm mr-4">
                     <i class="fa fa-download mr-1"></i> 32
@@ -85,18 +98,36 @@
                 <span class="like-count text-gray-700 text-sm">
                     <i class="fa fa-thumbs-up mr-1"></i> 1
                 </span>
+                <button class="cite-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded text-xs ml-4">Cite</button>
+
             </div>
         </div>
     }
 
     <div class="text-center my-8">
-        <button id="showMoreBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" data-lastid="@Model.Publications.LastOrDefault()?.PublicationId">
+        <button id="showMoreBtn" class="bg-green-200 text-green-800 hover:bg-gray-400  font-bold py-2 px-4 rounded" data-lastid="@Model.Publications.LastOrDefault()?.PublicationId">
             Show More
         </button>
     </div>
 
 </div>
 
+<!-- Citation Modal -->
+<div id="citationModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+    <div class="relative top-1/4 mx-auto p-5 border w-1/2 shadow-lg rounded-md bg-white">
+        <div class="text-center">
+            <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Citation Formats</h3>
+            <div class="modal-content text-left px-7 py-3 text-sm text-gray-500" id="modal-content">
+                <!-- Dynamically inserted citation formats will go here -->
+            </div>
+            <div class="mt-4">
+                <button id="closeModal" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script>
@@ -127,19 +158,107 @@
                 .then(response => response.text())
                 .then(html => {
                     if (html.trim()) {
-                        document.getElementById('publicationsList').insertAdjacentHTML('beforeend', html);
-
-                        // Update the lastPublicationId stored in "Show More" button
-                        var newLastPublicationId = document.querySelector('#publicationsList .publication-record:last-child').getAttribute('data-id');
-                        this.setAttribute('data-lastid', newLastPublicationId);
-
-                        document.getElementById('showMoreBtn').style.display = 'none';
+                        var publicationsList = document.getElementById('publicationsList');
+                        publicationsList.insertAdjacentHTML('beforeend', html);
+                        var lastChild = publicationsList.querySelector('.publication-record:last-child');
+                        if (lastChild) {
+                            var newLastPublicationId = lastChild.getAttribute('data-id');
+                            this.setAttribute('data-lastid', newLastPublicationId);
+                        } else {
+                            // No new records, maybe hide or disable the show more button
+                            this.style.display = 'none';
+                        }
+                    } else {
+                        // No more records to show
+                        this.style.display = 'none';
                     }
                 })
-                .catch(error => console.error('Error loading more publications:', error));
+                .catch(error => {
+                    console.error('Error loading more publications:', error);
+                    // Handle the error, e.g., by displaying a message to the user
+                });
         });
     });
 
 
+    // CITE MODAL
+    document.getElementById('publicationsList').addEventListener('click', function (event) {
+        // Check if the clicked element is a Cite button
+        if (event.target.classList.contains('cite-btn')) {
+            const button = event.target;
+            const publicationContainer = button.closest('.publication-record');
+            const doi = publicationContainer.dataset.doi;
 
+
+            if (!doi) {
+                alert('No DOI available for this publication.');
+                return; // Do not proceed if DOI is missing
+            }
+
+            const title = publicationContainer.querySelector('.publication-title a').textContent.trim();
+            console.log('Title:', title); // Log the title and authors
+            const authorElements = publicationContainer.querySelectorAll('.publication-authors');
+            const authors = Array.from(authorElements).map(element => element.textContent.trim()).join(', ');
+
+            const year = publicationContainer.querySelector('.publication-date').textContent;
+            console.log('Year:', year); // Log the year
+
+            const citationFormats = buildCitationFormats(title, authors, year, doi);
+            console.log('Citation Formats:', citationFormats); // Log the citation formats
+
+            showModal(citationFormats);
+        }
+    });
+
+
+    // The rest of the functions (buildCitationFormats, showModal) remain the same.
+
+
+    function buildCitationFormats(title, authors, year, doi) {
+        const authorList = authors.split(', ').map(author => author.trim()).join(', ');
+        // Generate citation formats using the publication data
+        return {
+            MLA: `${authorList}. "${title}." (Year Published: ${year}). ${doi}.`,
+            APA: `${authorList}. (${year}). ${title}. ${doi}.`,
+            Chicago: `${authorList}. "${title}." Year Published: ${year}. ${doi}.`,
+            Harvard: `${authorList}, ${year}. ${title}. ${doi}.`,
+            Vancouver: `${authorList}. ${title}. Year Published: ${year}; ${doi}.`,
+            BibTeX: `article{${authorList.replace(/, /g, ' and ')},
+                            title={${title}},
+                            author={${authorList}},
+                            journal={The Journal's Name Here},
+                            year={${year}},
+                            doi={${doi}}
+                         }`
+        };
+    }
+
+    function showModal(citationFormats) {
+        console.log('showModal called with citationFormats:', citationFormats);
+        const modalContent = document.getElementById('modal-content');
+        if (!modalContent) {
+            console.error('Modal content element not found!');
+            return;
+        }
+        modalContent.innerHTML = Object.entries(citationFormats).map(
+            ([format, text]) => `<p><strong>${format}</strong>: ${text}</p>`
+        ).join('');
+        const citationModal = document.getElementById('citationModal');
+        if (!citationModal) {
+            console.error('Citation modal element not found!');
+            return;
+        }
+        citationModal.classList.remove('hidden'); // Remove 'hidden' class to show the modal
+        console.log('Modal should now be visible.');
+    }
+
+    //close modal
+    document.getElementById('closeModal').addEventListener('click', function () {
+        document.getElementById('citationModal').classList.add('hidden');
+    });
+
+    function NavigateToDashboard() {
+
+        window.location.href = '@Url.Action("SocialMediaLogin", "Account")'
+    }
 </script>

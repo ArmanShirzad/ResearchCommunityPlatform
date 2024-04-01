@@ -187,8 +187,8 @@ namespace ResearchCommunityPlatform.Migrations
                         new
                         {
                             FileID = 1,
-                            FileName = "pub-1.pdf",
-                            FilePath = "/Files/pub-1.pdf",
+                            FileName = "user1pub001.pdf",
+                            FilePath = "/Files/user1pub001.pdf",
                             PublicationId = 1,
                             Size = 7.98f
                         });
@@ -251,7 +251,7 @@ namespace ResearchCommunityPlatform.Migrations
                             Description = "Quantum Machine Learning is an interdisciplinary field...",
                             PubType = "journal",
                             Title = "A Bibliometric Analysis of Quantum Machine Learning Research",
-                            UploadDate = "2024-03-17",
+                            UploadDate = "2024-03-18",
                             UserId = "1"
                         },
                         new
@@ -263,7 +263,7 @@ namespace ResearchCommunityPlatform.Migrations
                             Description = "",
                             PubType = "conference",
                             Title = "Novel Speaker Recognition Method on VoxCeleb Dataset",
-                            UploadDate = "2024-03-17",
+                            UploadDate = "2024-03-18",
                             UserId = "1"
                         },
                         new
@@ -275,7 +275,7 @@ namespace ResearchCommunityPlatform.Migrations
                             Description = "",
                             PubType = "conference",
                             Title = "Optimizing Cloud Datacenter Profit Using Q-learning-Based Method",
-                            UploadDate = "2024-03-17",
+                            UploadDate = "2024-03-18",
                             UserId = "1"
                         },
                         new
@@ -287,7 +287,7 @@ namespace ResearchCommunityPlatform.Migrations
                             Description = "U.S. health policy is engaged in a struggle over access to health information...",
                             PubType = "journal",
                             Title = "Data Governance and Stewardship: Designing Data Stewardship Entities and Advancing Data Access",
-                            UploadDate = "2024-03-17",
+                            UploadDate = "2024-03-18",
                             UserId = "1"
                         });
                 });
@@ -393,7 +393,7 @@ namespace ResearchCommunityPlatform.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "13a38417-e268-4259-9348-2f8e6d5acf51",
+                            ConcurrencyStamp = "6b6a8d38-2b67-428c-851d-aff9213382bd",
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
@@ -401,7 +401,7 @@ namespace ResearchCommunityPlatform.Migrations
                             NormalizedUserName = "USER@EXAMPLE.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAEIWY...",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "464e0f5e-eac6-4fc6-9d88-d1da7baf2e72",
+                            SecurityStamp = "45446d33-bb88-41f5-b386-75ce9cbfce69",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });

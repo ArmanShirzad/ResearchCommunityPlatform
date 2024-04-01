@@ -32,6 +32,9 @@ namespace ResearchCommunityPlatform.Controllers
         }
         public async Task<IActionResult> SocialMediaLogin() 
         {
+            ViewData["HideSearch"] = true;
+            ViewData["HideNavItmes"] = true;
+
             return View();
         }
 

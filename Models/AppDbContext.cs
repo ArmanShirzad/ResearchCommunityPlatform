@@ -60,6 +60,7 @@ namespace ResearchCommunityPlatform.Models
                     DateOfPublish = "2024-01-03",
                     UploadDate = dateNow,
                     PubType = "journal"
+
                 },
                 new Publication
                 {
@@ -113,8 +114,8 @@ namespace ResearchCommunityPlatform.Models
               {
                   FileID = 1,
                   PublicationId = 1,
-                  FileName = "pub-1.pdf",
-                  FilePath = "/Files/pub-1.pdf", // Starts with '/'
+                  FileName = "user1pub001.pdf",
+                  FilePath = "/Files/user1pub001.pdf", // Starts with '/'
                   Size = 7.98f // Example size in bytes (512 KB
               });
 
