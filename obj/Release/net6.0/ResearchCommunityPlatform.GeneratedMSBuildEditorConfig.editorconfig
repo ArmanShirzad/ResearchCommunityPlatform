@@ -5,10 +5,13 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ResearchCommunityPlatform
 build_property.RootNamespace = ResearchCommunityPlatform
 build_property.ProjectDir = C:\Users\a_shi\source\repos\ResearchCommunityPlatform\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
@@ -17,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 
 [C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/SocialMediaLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTb2NpYWxNZWRpYUxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Dashboard/MainDash.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1haW5EYXNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Home/Index.cshtml]

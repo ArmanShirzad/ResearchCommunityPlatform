@@ -22,7 +22,6 @@
         <p class="mb-4">
             <strong>Authors:</strong> @string.Join(", ", Model.Authors)
         </p>
-        <!-- Here you can add a section to display associated files if any -->
         <div>
             <h3 class="text-lg font-bold mb-2">Files</h3>
             @foreach (var file in Model.Files) // Ensure that this matches the property name in PublicationViewModel
@@ -31,18 +30,21 @@
                     <span class="download-count text-gray-700 text-sm mr-4">
                         <i class="fa fa-download mr-1"></i>
                     </span>
-                    <a href="@Url.Content("~/Files/" + file.FileName)" target="_blank" style="color: #2AB9FD;">PDF</a>
+                    @if (Model.PublicationId == 1)
+                    {
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/0194262X.2023.2292049" target="_blank" style="color: #2AB9FD;">View Publication</a>
+                    }
+                    else
+                    {
+
+                            <a href="#" target="_blank" style="color: #2AB9FD;">View Publication</a>
+                    }
 
                 </div>
-                <!--<div>-->
-                    <!-- Provide the file download link using the FilePath and display the FileName -->
-
-                    <!--<a href="@Url.Content("~/Files/" + file.FileName)" target="_blank" style="color: #2AB9FD;">File</a>
 
 
-                </div>-->
+
             }
         </div>
-        <!-- Here you can add a section for other details like views, downloads, etc. -->
     </div>
 </div>

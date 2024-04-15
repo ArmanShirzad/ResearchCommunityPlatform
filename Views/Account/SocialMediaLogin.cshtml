@@ -1,31 +1,33 @@
 ﻿
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
 <style>
-body {
+    body {
         font-family: 'Open Sans', sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+
     .container {
         width: 40%;
         max-width: 90%;
         margin: 0 auto;
         padding: 20px;
     }
+
     @@media (min-width: 600px) {
         .container {
             padding: 40px;
         }
     }
+
     @@media (min-width: 992px) {
         .container {
             padding: 60px;
         }
     }
-    
 </style>
-<div class="bg-gradient-to-r from-[#006d77] to-[#83c5be] h-screen flex justify-center items-center">
+<!--<div class="bg-gradient-to-r from-[#006d77] to-[#83c5be] h-screen flex justify-center items-center">
     <div class="container bg-white p-8 rounded shadow-md">
         <h2 class="text-2xl font-bold mb-8 text-center">Log in to account</h2>
         <div class="flex flex-col space-y-4">
@@ -36,11 +38,24 @@ body {
             <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
                 <i class="fab fa-github"></i>
                 <span class="ml-2">Sign in with GitHub</span>
+            </button>-->
+@*<form asp-action="ExternalLogin" asp-controller="Account" method="post">
+        <input type="hidden" name="provider" value="Google" />
+        <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+        <button type="submit" class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+            <i class="fab fa-google"></i>
+            <span class="ml-2">Sign in with Google</span>
+        </button>
+    </form>*@
+<!--<form asp-action="ExternalLogin" asp-controller="Account" method="post">
+    <input type="hidden" name="provider" value="Google" />
+    <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+    <button type="submit" class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+        <i class="fab fa-google" style="font-size: 1.25em;"></i>-->
+ <!-- Adjust the font-size as needed -->
+<!--<span class="ml-2">Sign in with Google</span>
             </button>
-            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
-                <i class="fa fa-google"></i>
-                <span class="ml-2">Sign in with Google</span>
-            </button>
+        </form>
             <div class="relative flex py-5 items-center">
                 <div class="flex-grow border-t border-gray-300"></div>
                 <span class="flex-shrink mx-4 text-gray-400">OR</span>
@@ -54,7 +69,58 @@ body {
                 <button class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Log in</button>
             </div>
             <div class="text-center text-sm text-gray-600">
-                New to research Gap? <a href="#" class="text-blue-500 hover:underline">Sign up</a>
+                New to Research Geek? <a href="#" class="text-blue-500 hover:underline">Sign up</a>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                <a href="#" class="text-blue-500 hover:underline">Privacy notice</a>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                <a href="#" class="text-blue-500 hover:underline">Forgot password?</a>
+            </div>
+            <div class="text-center text-sm text-gray-600">
+                <a href="#" class="text-blue-500 hover:underline">Resend confirmation email</a>
+            </div>
+        </div>
+    </div>
+</div>-->
+<div class="bg-gradient-to-r from-[#006d77] to-[#83c5be] h-screen flex justify-center items-center">
+    <div class="container bg-white p-8 rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-8 text-center">Log in to account</h2>
+        <div class="flex flex-col space-y-4">
+            <!-- ORCID button -->
+            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                <i class="fab fa-orcid fa-fw"></i>
+                <span class="ml-2">Sign in with ORCID</span>
+            </button>
+            <!-- GitHub button -->
+            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                <i class="fab fa-github fa-fw"></i>
+                <span class="ml-2">Sign in with GitHub</span>
+            </button>
+            <!-- Google button -->
+            <form asp-action="ExternalLogin" asp-controller="Account" method="post" class="w-full">
+                <input type="hidden" name="provider" value="Google" />
+                <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                <button type="submit" class="w-full flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                    <i class="fab fa-google fa-fw"></i>
+                    <span class="ml-2">Sign in with Google</span>
+                </button>
+            </form>
+            <!-- Divider -->
+            <div class="relative flex py-5 items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="flex-shrink mx-4 text-gray-400">OR</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+            <!-- Form fields -->
+            <div class="space-y-4">
+                <input type="email" placeholder="Email Address" class="w-full p-2 border rounded text-black border-gray-300">
+                <input type="password" placeholder="Password" class="w-full p-2 border rounded text-black border-gray-300">
+                <button class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Log in</button>
+            </div>
+            <!-- Links -->
+            <div class="text-center text-sm text-gray-600">
+                New to research Geak <a href="#" class="text-blue-500 hover:underline">Sign up</a>
             </div>
             <div class="text-center text-sm text-gray-600">
                 <a href="#" class="text-blue-500 hover:underline">Privacy notice</a>

@@ -17,6 +17,10 @@
         .custom-gradient-second-footer {
             background: linear-gradient(to right, #005060, #80c090);
         }
+        .body {
+            transform: scale(0.1);
+            transform-origin: 0 0;
+        }
 
         
     </style>
@@ -39,41 +43,68 @@
                             @if (ViewData["HideNavItmes"] == null || !(bool)ViewData["HideNavItmes"])
                             {
                                 <div class="hidden md:flex items-center space-x-1">
-                                    <a asp-controller="Account" asp-action="SocialMediaLogin" class="py-5 px-3 text-white">Communities</a>
-                                    <a asp-controller="Account" asp-action="SocialMediaLogin" class="py-5 px-3 text-white">My Dashboard</a>
+                                    <a asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="py-5 px-3 text-white">Communities</a>
+                                    <a asp-controller="Dashboard" asp-action="MainDash" asp-route-returnUrl="@Context.Request.Path" class="py-5 px-3 text-white my-dashboard-link">My Dashboard</a>
                                 </div>
                             }
                         </div>
                         <!-- secondary nav -->
-                           @if (ViewData["HideNavItmes"] == null || !(bool)ViewData["HideNavItmes"])
-                             {
-                            <div class="hidden md:flex items-center space-x-1">
-                                <button id="bttest" asp-controller="Account" asp-action="SocialMediaLogin" class="bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
-                                    Log in
-                                </button>
-
-                                <button class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
-                                    Sign Up
-                                </button>
-
-                            </div>
+                        @if (ViewData["HideNavItmes"] == null || !(bool)ViewData["HideNavItmes"])
+                        {
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="hidden md:flex items-center space-x-1">
+                                    <a href="@Url.Action("Profile", "Account")" class="bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
+                                        Profile
+                                    </a>
+                                    <!-- Change the Logout link to a form to handle POST request properly -->
+                                    <form asp-controller="Account" asp-action="Logout" method="post" class="inline">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
                             }
-                            <!-- mobile button goes here -->
-                            <div class="md:hidden flex items-center">
-                                <button class="mobile-menu-button" onclick="toggleMobileMenu()">
-                                    <svg class="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                                    </svg>
-                                </button>
-                            </div>
+                            else
+                            {
+                                <div class="hidden md:flex items-center space-x-1">
+                                    <button id="bttest" asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
+                                        Log in
+                                    </button>
+                                    <button asp-controller="Account" asp-action="Register" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
+                                        Sign Up
+                                    </button>
+                                </div>
+                            }
+                        }
+                        <!-- mobile button goes here -->
+                        <div class="md:hidden flex items-center">
+                            <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+                                <svg class="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                                </svg>
+                            </button>
                         </div>
+                    </div>
                 </div>
                 <!-- mobile menu -->
                 <div class="mobile-menu hidden md:hidden" id="mobileMenu">
                     <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Communities</a>
-                    <a asp-controller="Account" asp-action="SocialMediaLogin" class="block py-2 px-4 text-sm hover:bg-blue-800">My Dashboard</a>
-                    <a asp-controller="Account" asp-action="SocialMediaLogin" class="block py-2 px-4 text-sm hover:bg-blue-800">Log in</a>
-                    <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Sign up</a>
+                    <a asp-controller="Dashboard" asp-action="MainDash" asp-route-returnUrl="@Context.Request.Path" class="block py-2 px-4 text-sm hover:bg-blue-800 my-secdashboard-link">My Dashboard</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <!-- Display user profile and logout links -->
+                        <a href="@Url.Action("Profile", "Account")" class="py-5 px-3 text-white">Profile</a>
+                        <a href="@Url.Action("Logout", "Account")" class="py-5 px-3 text-white">Logout</a>
+                    }
+                    else
+                    {
+                        <!-- Display login and sign-up links -->
+                        <a asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="block py-2 px-4 text-sm hover:bg-blue-800">Log in</a>
+                        <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Sign up</a>
+                    }
+
                 </div>
             </nav>
             @if (ViewData["HideSearch"] == null || !(bool)ViewData["HideSearch"])
@@ -152,6 +183,19 @@
             window.location.href = '/Account/SocialMediaLogin';
         });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            var dashboardLink = document.querySelector('.my-dashboard-link');
+            dashboardLink.addEventListener('click', function (event) {
+                console.log('Dashboard link clicked');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var dashboardLink = document.querySelector('.my-secdashboard-link');
+            dashboardLink.addEventListener('click', function (event) {
+                console.log('secDashboard link clicked');
+            });
+        });
 
     </script>
     @await RenderSectionAsync("Scripts", required: false)

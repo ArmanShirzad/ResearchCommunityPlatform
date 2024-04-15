@@ -1,0 +1,222 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\views\\dashboard\\maindash.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:views\\dashboard\\maindash.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\views\\account\\socialmedialogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:views\\account\\socialmedialogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\models\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:models\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\models\\publication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:models\\publication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|c:\\users\\a_shi\\source\\repos\\researchcommunityplatform\\views\\home\\publication.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{83EC2D9A-378C-4E8C-AABB-4B7C00589BB7}|ResearchCommunityPlatform.csproj|solutionrelative:views\\home\\publication.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainDash.cshtml",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Dashboard\\MainDash.cshtml",
+              "RelativeDocumentMoniker": "Views\\Dashboard\\MainDash.cshtml",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Dashboard\\MainDash.cshtml",
+              "RelativeToolTip": "Views\\Dashboard\\MainDash.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-12T12:26:28.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:01:11.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SocialMediaLogin.cshtml",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Account\\SocialMediaLogin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\SocialMediaLogin.cshtml",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Account\\SocialMediaLogin.cshtml",
+              "RelativeToolTip": "Views\\Account\\SocialMediaLogin.cshtml",
+              "ViewState": "AQIAABwAAAAAAAAAAAAwwB0AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-12T09:54:45.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAYwF0AAAB0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-04T18:34:59.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T09:46:48.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Models\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Models\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Models\\DashboardController.cs",
+              "RelativeToolTip": "Models\\DashboardController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T12:25:03.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "bootstrap.bundle.js",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+              "ViewState": "AQIAAEQYAAAAAAAAAAAwwFwYAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-04-12T13:30:27.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Publication.cs",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Models\\Publication.cs",
+              "RelativeDocumentMoniker": "Models\\Publication.cs",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Models\\Publication.cs",
+              "RelativeToolTip": "Models\\Publication.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T12:23:22.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-04T19:08:54.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Publication.cshtml",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Home\\Publication.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Publication.cshtml",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Views\\Home\\Publication.cshtml",
+              "RelativeToolTip": "Views\\Home\\Publication.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-04T19:01:29.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T11:05:26.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-07T19:19:46.376Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

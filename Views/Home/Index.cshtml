@@ -200,12 +200,15 @@
             const authorElements = publicationContainer.querySelectorAll('.publication-authors');
             const authors = Array.from(authorElements).map(element => element.textContent.trim()).join(', ');
 
-            const year = publicationContainer.querySelector('.publication-date').textContent;
+            const yearfull = publicationContainer.querySelector('.publication-date').textContent;   
+            const year = new Date(yearfull).getFullYear();
+
             console.log('Year:', year); // Log the year
+            console.log('Yearful    :', yearfull); // Log the year
 
             const citationFormats = buildCitationFormats(title, authors, year, doi);
             console.log('Citation Formats:', citationFormats); // Log the citation formats
-
+                
             showModal(citationFormats);
         }
     });
@@ -216,21 +219,24 @@
 
     function buildCitationFormats(title, authors, year, doi) {
         const authorList = authors.split(', ').map(author => author.trim()).join(', ');
+
         // Generate citation formats using the publication data
         return {
-            MLA: `${authorList}. "${title}." (Year Published: ${year}). ${doi}.`,
+            MLA: `${authorList}. "${title}." (${year}). ${doi}.`,
             APA: `${authorList}. (${year}). ${title}. ${doi}.`,
-            Chicago: `${authorList}. "${title}." Year Published: ${year}. ${doi}.`,
+            Chicago: `${authorList}. "${title}.${year}. ${doi}.`,
             Harvard: `${authorList}, ${year}. ${title}. ${doi}.`,
-            Vancouver: `${authorList}. ${title}. Year Published: ${year}; ${doi}.`,
-            BibTeX: `article{${authorList.replace(/, /g, ' and ')},
-                            title={${title}},
-                            author={${authorList}},
-                            journal={The Journal's Name Here},
-                            year={${year}},
-                            doi={${doi}}
-                         }`
+            Vancouver: `${authorList}. ${title}.${year}; ${doi}.`,
+            BibTeX: `article {
+            author = {${authorList.replace(/, /g, ' and ')}},
+            title = {${title}},
+            journal = {The Journal's Name Here},
+            year = {${year}},
+            doi = {${doi}}
+                            }`
+
         };
+
     }
 
     function showModal(citationFormats) {

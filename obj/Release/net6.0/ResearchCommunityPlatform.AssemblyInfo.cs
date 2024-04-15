@@ -12,10 +12,11 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("04676be1-a696-4dbf-904a-e54ce7c120a5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ResearchCommunityPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e895f3c6eac18a549332617e1357e82a46c6aab3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ResearchCommunityPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ResearchCommunityPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
