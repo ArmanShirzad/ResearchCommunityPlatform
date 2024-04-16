@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ResearchCommunityPlatform.Models
+namespace ResearchCommunityPlatform.Controllers
 {
     public class DashboardController : Controller
     {

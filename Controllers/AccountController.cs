@@ -42,7 +42,7 @@ namespace ResearchCommunityPlatform.Controllers
 
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
         {
-            if (remoteError != null)
+                if (remoteError != null)
             {
                 // Handle the error scenario here, possibly redirecting to an error page
                 return RedirectToAction(nameof(Login), new { ErrorMessage = remoteError });
