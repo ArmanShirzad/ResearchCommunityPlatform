@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>@ViewData["Title"] - Research GeekClone</title>
     @*<script src="https://cdn.tailwindcss.com"></script>*@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
@@ -21,8 +20,6 @@
             transform: scale(0.1);
             transform-origin: 0 0;
         }
-
-        
     </style>
 </head>
 <body class="flex flex-col h-full bg-gray-100  text-gray-900">
@@ -72,7 +69,7 @@
                                     <button id="bttest" asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
                                         Log in
                                     </button>
-                                    <button asp-controller="Account" asp-action="Register" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
+                                    <button asp-controller="Account" asp-action="signup" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
                                         Sign Up
                                     </button>
                                 </div>
@@ -91,7 +88,7 @@
                 <!-- mobile menu -->
                 <div class="mobile-menu hidden md:hidden" id="mobileMenu">
                     <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Communities</a>
-                    <a asp-controller="Dashboard" asp-action="MainDash" asp-route-returnUrl="@Context.Request.Path" class="block py-2 px-4 text-sm hover:bg-blue-800 my-secdashboard-link">My Dashboard</a>
+                    <a asp-controller="Dashboard" asp-action="MainDash"   class="block py-2 px-4 text-sm hover:bg-blue-800 my-secdashboard-link">My Dashboard</a>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <!-- Display user profile and logout links -->

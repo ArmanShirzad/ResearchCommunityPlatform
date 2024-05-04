@@ -1,0 +1,108 @@
+﻿@model ResearchCommunityPlatform.Models.RegisterViewModel
+@{
+    var confirmationResult = ViewBag.successConfirm as string;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+
+    <title>Register Form</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 40%;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @@media (min-width: 600px) {
+            .container {
+                padding: 40px;
+            }
+        }
+
+        @@media (min-width: 992px) {
+            .container {
+                padding: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-to-r from-[#006d77] to-[#83c5be] h-screen flex justify-center items-center">
+        <div class="container bg-white p-8 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-8 text-center">Sign Up</h2>
+            @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+            {
+                <div class="flex flex-col space-y-4">
+                    @Html.AntiForgeryToken()
+                    @if (ViewBag.XAllo != null)
+                    {
+                        <div class="alert alert-success">@ViewBag.XAllo</div>
+                    }
+                    else
+                    {
+                        @if (confirmationResult == "success")
+                        {
+                            <p> Email Confirmed Successfully You'll be redicted to homepage now.'</p>
+                            <a href="@Url.Action("Index","Home") "> Go to homepage </a>
+                        }
+                        else if (confirmationResult == "failure")
+                        {
+                            <p>Failed to confirm email. Try again or contact support.</p>
+                            <form asp-action="ResendConfirmationEmail" asp-controller="Account" method="post">
+                                <input type="hidden" asp-for="Email" />
+                                <button type="submit" class="btn btn-link">Resend Confirmation Email</button>
+                            </form>
+                        }
+                        else
+                        {
+
+                            <input type="text" asp-for="UserName" placeholder="Username" required class="w-full p-2 border rounded text-black border-gray-300" aria-label="Username">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+
+                            <input type="email" asp-for="Email" placeholder="Email Address" required class="w-full p-2 border rounded text-black border-gray-300" aria-label="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                            <input type="password" asp-for="Password" placeholder="Password" required minlength="6" class="w-full p-2 border rounded text-black border-gray-300" aria-label="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+
+                            <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" required class="w-full p-2 border rounded text-black border-gray-300" aria-label="Confirm Password">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Sign Up</button>
+
+                        }
+                    }
+                </div>
+            }
+
+            <div class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <a href="#" class="text-blue-500 hover:underline">Log in</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@if (ViewBag.Redirect == true)
+{
+    <script>
+        setTimeout(function() {
+            window.location.href = '@Url.Action("Index", "Home")'; // Redirect to the homepage after 3000 milliseconds
+        }, 3000);
+    </script>
+}
