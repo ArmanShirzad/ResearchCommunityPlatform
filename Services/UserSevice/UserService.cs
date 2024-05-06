@@ -6,6 +6,10 @@ using ResearchCommunityPlatform.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
+using System.Security.Permissions;
+using NuGet.Common;
+using System.Net.Sockets;
+using Microsoft.AspNetCore.Http;
 namespace ResearchCommunityPlatform.Services.UserSevice
 {
     public class UserService
@@ -18,6 +22,7 @@ namespace ResearchCommunityPlatform.Services.UserSevice
         private readonly IUrlHelperFactory _urlHelperFactory;
         private readonly IActionContextAccessor _actionContextAccessor;
         private readonly AppDbContext _context;
+        //private readonly LinkGenerator _linkGenerator;
 
         public UserService(UserManager<User> userManager,
                            IEmailSender emailSender,
@@ -25,7 +30,8 @@ namespace ResearchCommunityPlatform.Services.UserSevice
                            IUrlHelperFactory urlHelperFactory,
                            IActionContextAccessor actionContextAccessor,
                            AppDbContext context,
-                           SignInManager<User> signInManager) // Optionally inject IActionContextAccessor if needed
+                           SignInManager<User> signInManager)
+                           //LinkGenerator linkGenerator) // Optionally inject IActionContextAccessor if needed
         {
             _userManager = userManager;
             _emailSender = emailSender;
@@ -122,5 +128,48 @@ namespace ResearchCommunityPlatform.Services.UserSevice
      
             return false;
         }
+        public async Task ResendConfirmationEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                throw new InvalidOperationException("No user associated with this email.");
+            }
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var actionContext = _actionContextAccessor.ActionContext;
+            var urlHelper = _urlHelperFactory.GetUrlHelper(actionContext);
+
+            var confirmationLink = urlHelper.Action("ConfirmEmail", "Account", new
+            {
+                userId = user.Id,
+                token = token
+            }, _httpContextAccessor.HttpContext.Request.Scheme);
+
+            await SendConfirmationEmailAsync(email, confirmationLink);
+        }
+
+        public async Task SendResetPasswordEmailAsync(string email, string token)
+        {
+            var httpContext = _httpContextAccessor.HttpContext;
+            if (httpContext == null)
+            {
+                throw new InvalidOperationException("HTTP context is not available.");
+            }
+
+            var urlHelper = _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext);
+            var callbackUrl = urlHelper.Action("ResetPassword", "Account",
+                new { email = email, token = token }, _httpContextAccessor.HttpContext.Request.Scheme);
+
+            string subject = "Reset Your Password";
+
+            // Email message with link
+            string message = $"Please reset your password by clicking here: <a href='{callbackUrl}'>Reset Password</a>";
+
+            // Send the email
+            await _emailSender.SendEmailAsync(email, subject, message);
+        }
+
+
     }
 }

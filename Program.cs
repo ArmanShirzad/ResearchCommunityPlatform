@@ -19,6 +19,7 @@ builder.Services.AddIdentity<User, IdentityRole>()
      .AddEntityFrameworkStores<AppDbContext>()
      .AddDefaultTokenProviders();
 builder.Services.AddHttpContextAccessor();
+//builder.Services.AddSingleton<LinkGenerator>();
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IUserService,UserService>();

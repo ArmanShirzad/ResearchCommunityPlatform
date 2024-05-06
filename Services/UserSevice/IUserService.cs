@@ -35,8 +35,8 @@ namespace ResearchCommunityPlatform.Services.UserSevice
         bool EmailExists(string email);
 
          Task<bool> LoginUserAsync(string email, string password);
-
-
+        Task ResendConfirmationEmailAsync(string email);
+        Task SendResetPasswordEmailAsync(string email, string token);
     }
 
 }

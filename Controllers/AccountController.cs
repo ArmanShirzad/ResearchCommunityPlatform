@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -37,19 +38,27 @@ namespace ResearchCommunityPlatform.Controllers
         {
             return View();
         }
-
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            var state = await _userService.LoginUserAsync(model.UserName, model.Password);
-            if (state)
+            if (ModelState.IsValid)
             {
-                ViewBag.state = $"welcom!, {model.UserName}";
-                return View("socialmedialogin", model);
 
+                var state = await _userService.LoginUserAsync(model.UserName, model.Password);
+                if (state)
+                {
+                    ViewBag.state = $"welcom!, {model.UserName}";
+                    return View("socialmedialogin", model);
+
+                }
             }
-
-            return View("Index");
+            else
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
+            return View(model);
         }
         // External login action
         [HttpPost]
@@ -191,6 +200,8 @@ namespace ResearchCommunityPlatform.Controllers
                 var result = await _userService.RegisterUserAsync(model);
                 if (result.Success)
                 {
+                    TempData["UserEmail"] = model.Email; // Store email to TempData
+
                     // Inform the user to check their email for a confirmation link
                     ViewBag.XAllo = "Registration successful. Please check your email to confirm your account.";
                     return View("Signup", model);
@@ -208,12 +219,12 @@ namespace ResearchCommunityPlatform.Controllers
             return View(model);
         }
 
-        public IActionResult RegistrationSuccess()
-        {
-            // Retrieve the message from TempData and pass to the view if needed
-            ViewBag.Message = TempData["Message"] as string;
-            return View();
-        }
+        //public IActionResult RegistrationSuccess()
+        //{
+        //    // Retrieve the message from TempData and pass to the view if needed
+        //    ViewBag.Message = TempData["Message"] as string;
+        //    return View();
+        //}
         [HttpGet]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
@@ -237,21 +248,110 @@ namespace ResearchCommunityPlatform.Controllers
 
             return View("SignUp");
         }
-            [HttpPost]
-            public async Task<IActionResult> ResendConfirmationEmail(string email, string token)
+        [HttpPost]
+        public async Task<IActionResult> ResendConfirmationEmail()
+        {
+            var email = TempData["UserEmail"] as string; // Retrieve email from TempData
+
+            if (string.IsNullOrEmpty(email))
             {
-                // Logic to resend the email
-                try
-                {
-                    await _userService.SendConfirmationEmailAsync(email, token);
-                    ViewBag.Message = "Confirmation email resent successfully.";
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Error = $"Failed to resend confirmation email: {ex.Message}";
-                }
-                return View("Index");
-                #endregion
+                ViewBag.Error = "Could not retrieve email to resend the confirmation. Please try signing up again.";
+                return View("SignUp");
             }
+            try
+            {
+                await _userService.ResendConfirmationEmailAsync(email);
+                ViewBag.Message = "Confirmation email resent successfully.";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = $"Failed to resend confirmation email: {ex.Message}";
+            }
+            return Ok();
+            }
+        #endregion
+
+        #region forgotpass?
+
+        [HttpGet]
+        public IActionResult ForgotPasswordForm()
+        {
+            return PartialView("_ForgotPasswordForm");
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userInManager.FindByEmailAsync(model.Email);
+                if (user == null || !(await _userInManager.IsEmailConfirmedAsync(user)))
+                {
+                    // Optionally inform the user or just log internally
+                    return PartialView("ForgotPasswordConfirmation");
+                }
+
+                var token = await _userInManager.GeneratePasswordResetTokenAsync(user);
+                await _userService.SendResetPasswordEmailAsync(user.Email, token);
+
+                return RedirectToAction("ForgotPasswordConfirmation");
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Retrieve user by email stored in a hidden field within the form
+            var user = await _userInManager.FindByEmailAsync(model.email);
+            if (user == null)
+            {
+                // Redirect to confirmation to avoid revealing user existence
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+
+            var result = await _userInManager.ResetPasswordAsync(user, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string code)
+        {
+            if (string.IsNullOrEmpty(code))
+            {
+                return View("Error"); // Show an error view if the code is missing
+            }
+
+            var model = new ResetPasswordViewModel { Code = code };
+            return View(model);
+        }
+
+
+
+        #endregion
     }
 }

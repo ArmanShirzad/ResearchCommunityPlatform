@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - Research GeekClone</title>
+    <title>@ViewData["Title"] - Research Geek</title>
     @*<script src="https://cdn.tailwindcss.com"></script>*@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -16,6 +16,7 @@
         .custom-gradient-second-footer {
             background: linear-gradient(to right, #005060, #80c090);
         }
+
         .body {
             transform: scale(0.1);
             transform-origin: 0 0;
@@ -41,7 +42,7 @@
                             {
                                 <div class="hidden md:flex items-center space-x-1">
                                     <a asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="py-5 px-3 text-white">Communities</a>
-                                    <a asp-controller="Dashboard" asp-action="MainDash"  class="py-5 px-3 text-white my-dashboard-link">My Dashboard</a>
+                                    <a asp-controller="Dashboard" asp-action="MainDash" class="py-5 px-3 text-white my-dashboard-link">My Dashboard</a>
                                 </div>
                             }
                         </div>
@@ -69,7 +70,7 @@
                                     <button id="bttest" asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
                                         Log in
                                     </button>
-                                    <button asp-controller="Account" asp-action="signup" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
+                                    <button title="sign up" id="btnSignup" asp-controller="Account" asp-action="SignUp" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-teal-900 focus:ring-opacity-50">
                                         Sign Up
                                     </button>
                                 </div>
@@ -88,7 +89,7 @@
                 <!-- mobile menu -->
                 <div class="mobile-menu hidden md:hidden" id="mobileMenu">
                     <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-800">Communities</a>
-                    <a asp-controller="Dashboard" asp-action="MainDash"   class="block py-2 px-4 text-sm hover:bg-blue-800 my-secdashboard-link">My Dashboard</a>
+                    <a asp-controller="Dashboard" asp-action="MainDash" class="block py-2 px-4 text-sm hover:bg-blue-800 my-secdashboard-link">My Dashboard</a>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <!-- Display user profile and logout links -->
@@ -174,23 +175,17 @@
             document.getElementById('mobileMenu').classList.toggle('hidden');
 
         }
-
-        document.getElementById('bttest').addEventListener('click', function () {
-            // Directly navigate to the Account/SocialMediaLogin action
-            window.location.href = '/Account/SocialMediaLogin';
-        });
-
         document.addEventListener('DOMContentLoaded', function () {
-            var dashboardLink = document.querySelector('.my-dashboard-link');
-            dashboardLink.addEventListener('click', function (event) {
-                console.log('Dashboard link clicked');
+            // Attach click event listener to the 'bttest' button
+            document.getElementById('bttest').addEventListener('click', function () {
+                // Navigate to the Account/SocialMediaLogin action
+                window.location.href = '/Account/SocialMediaLogin';
             });
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var dashboardLink = document.querySelector('.my-secdashboard-link');
-            dashboardLink.addEventListener('click', function (event) {
-                console.log('secDashboard link clicked');
+            // Attach click event listener to the 'btnSignup' button
+            document.getElementById('btnSignup').addEventListener('click', function () {
+                // Navigate to the Account/SignUp action
+                window.location.href = '/Account/SignUp';
             });
         });
 

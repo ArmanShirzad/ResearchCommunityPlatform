@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title>Register Form</title>
     <style>
@@ -50,10 +51,14 @@
                     @Html.AntiForgeryToken()
                     @if (ViewBag.XAllo != null)
                     {
-                        <div class="alert alert-success">@ViewBag.XAllo</div>
+                        <div id="successreg" class="alert alert-success">@ViewBag.XAllo</div>
+                        <button id="resendEmailBtn" class="btn btn-link">Didn't receive the email? Click here to resend.</button>
+                        <div id="messageContainer" aria-live="polite" aria-atomic="true"></div>
                     }
                     else
                     {
+
+
                         @if (confirmationResult == "success")
                         {
                             <p> Email Confirmed Successfully You'll be redicted to homepage now.'</p>
@@ -62,10 +67,7 @@
                         else if (confirmationResult == "failure")
                         {
                             <p>Failed to confirm email. Try again or contact support.</p>
-                            <form asp-action="ResendConfirmationEmail" asp-controller="Account" method="post">
-                                <input type="hidden" asp-for="Email" />
-                                <button type="submit" class="btn btn-link">Resend Confirmation Email</button>
-                            </form>
+
                         }
                         else
                         {
@@ -89,10 +91,10 @@
                 </div>
             }
 
-            <div class="text-center text-sm text-gray-600 mt-4">
+            <div id="alreadyhaveacc" class="text-center text-sm text-gray-600 mt-4">
                 Already have an account? <a href="#" class="text-blue-500 hover:underline">Log in</a>
             </div>
-        </div>
+        </div>s
     </div>
 
 </body>
@@ -106,3 +108,35 @@
         }, 3000);
     </script>
 }
+<script>
+    //btnRensendMail
+    //document.getElementById('btnRensendMail').addEventListener('click', function () {
+    //    // Directly navigate to the Account/SocialMediaLogin action
+    //    window.location.href = '/Account/ResendConfirmationEmail';
+    //});
+    $(document).ready(function() {
+    $("#resendEmailBtn").click(function(e) {
+    e.preventDefault();
+    console.log("Resend button clicked, sending AJAX request.");
+
+    $.ajax({
+        url: '@Url.Action("ResendConfirmationEmail", "account")',
+        type: 'POST',
+        success: function(result) {
+            $('#messageContainer').html('<p class="success-message">Confirmation email resent successfully. Please check your email.</p>');
+            $('#resendEmailBtn').hide();
+            $('#successreg').hide();// Optionally hide the button instead o  disabling it
+            $('#alreadyhaveacc').hide();// Optionally hide the button instead of disabling it
+        },
+        error: function(xhr, status, error) {
+            console.log("Error response:", xhr.responseText);
+            alert("Failed to resend confirmation email.");
+        }
+    });
+});
+
+    });
+ 
+});
+</script>
+ |
