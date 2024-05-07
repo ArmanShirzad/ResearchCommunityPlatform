@@ -23,6 +23,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddLogging();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -51,11 +52,14 @@ builder.Services.AddAuthentication(options =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
-    options.Cookie.SameSite = SameSiteMode.None;  // Necessary for OAuth2 redirection
+    options.Cookie.SameSite = SameSiteMode.None;  // Necessary for OAuth2   
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  // Enforce HTTPS
 });
 builder.Services.AddControllersWithViews(); 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 var app = builder.Build();  
 
 if (!app.Environment.IsDevelopment())
@@ -72,6 +76,8 @@ if (!app.Environment.IsDevelopment())
         });
     });
 }
+app.UseHttpLogging();
+app.UseHttpsRedirection();  
 app.UseStaticFiles();
 
 app.UseRouting();

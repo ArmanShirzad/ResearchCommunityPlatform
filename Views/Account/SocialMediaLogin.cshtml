@@ -1,5 +1,7 @@
 ﻿@model LoginViewModel
-
+@{
+    Layout = null;  // Ensures no layout is applied if you're using Layouts
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="~/css/styles.css" rel="stylesheet" />
 
     <style>
         body {
@@ -51,97 +55,78 @@
             else
             {
 
-        <div class="flex flex-col space-y-4">
-            <!-- ORCID button -->
-            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
-                <i class="fab fa-orcid fa-fw"></i>
-                <span class="ml-2">Sign in with ORCID</span>
-            </button>
-            <!-- GitHub button -->
-            <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
-                <i class="fab fa-github fa-fw"></i>
-                <span class="ml-2">Sign in with GitHub</span>
-            </button>
-            <!-- Google button -->
-            <form asp-action="ExternalLogin" asp-controller="Account" method="post" class="w-full">
-                <input type="hidden" name="provider" value="Google" />
-                <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
-                <button type="submit" class="w-full flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
-                    <i class="fab fa-google fa-fw"></i>
-                    <span class="ml-2">Sign in with Google</span>
-                </button>
-            </form>
-            <!-- Divider -->
-            <div class="relative flex py-5 items-center">
-                <div class="flex-grow border-t border-gray-300"></div>
-                <span class="flex-shrink mx-4 text-gray-400">OR</span>
-                <div class="flex-grow border-t border-gray-300"></div>
-            </div>
-            <!-- Form fields -->
-            <form method="post" asp-controller="Account" asp-action="Login">
-                <div class="space-y-4">
-                    <input type="text" asp-for="UserName" placeholder="Username" class="w-full p-2 border rounded text-black border-gray-300">
-                    <span asp-validation-for="UserName" class="text-danger"></span>
-                    <input type="password" asp-for="Password" placeholder="Password" class="w-full p-2 border rounded text-black border-gray-300">
-                    <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="flex flex-col space-y-4">
+                    <!-- ORCID button -->
+                    <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                        <i class="fab fa-orcid fa-fw"></i>
+                        <span class="ml-2">Sign in with ORCID</span>
+                    </button>
+                    <!-- GitHub button -->
+                    <button class="flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                        <i class="fab fa-github fa-fw"></i>
+                        <span class="ml-2">Sign in with GitHub</span>
+                    </button>
+                    <!-- Google button -->
+                    <form asp-action="ExternalLogin" asp-controller="Account" method="post" class="w-full">
+                        <input type="hidden" name="provider" value="Google" />
+                        <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                        <button type="submit" class="w-full flex items-center justify-center p-2 border rounded text-black border-gray-300 hover:bg-gray-100">
+                            <i class="fab fa-google fa-fw"></i>
+                            <span class="ml-2">Sign in with Google</span>
+                        </button>
+                    </form>
+                    <!-- Divider -->
+                    <div class="relative flex py-5 items-center">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">OR</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+                    <!-- Form fields -->
+                    <form method="post" asp-controller="Account" asp-action="Login">
+                        <div class="space-y-4">
+                            <input type="text" asp-for="UserName" placeholder="Username" class="w-full p-2 border rounded text-black border-gray-300">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                            <input type="password" asp-for="Password" placeholder="Password" class="w-full p-2 border rounded text-black border-gray-300">
+                            <span asp-validation-for="Password" class="text-danger"></span>
 
-                    <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Log in</button>
+                            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Log in</button>
+                        </div>
+                    </form>
+
+                    <!-- Links -->
+                    <div class="text-center text-sm text-gray-600">
+                        New to research Geek <a asp-controller="Account" asp-action="Signup" class="text-blue-500 hover:underline">Sign up</a>
+                    </div>
+                    <div class="text-center text-sm text-gray-600">
+                        <a href="#" class="text-blue-500 hover:underline">Privacy notice</a>
+                    </div>
+                    <div class="text-center text-sm text-gray-600">
+                        <a href="#" id="forgotPasswordLink" class="text-blue-500 hover:underline">Forgot password?</a>
+                    </div>
+                    <div class="text-center text-sm text-gray-600">
+                    </div>
                 </div>
-            </form>
-
-            <!-- Links -->
-            <div class="text-center text-sm text-gray-600">
-                New to research Geek <a asp-controller="Account" asp-action="Signup" class="text-blue-500 hover:underline">Sign up</a>
-            </div>
-            <div class="text-center text-sm text-gray-600">
-                <a href="#" class="text-blue-500 hover:underline">Privacy notice</a>
-            </div>
-            <div class="text-center text-sm text-gray-600">
-                <a href="#" id="forgotPasswordLink" class="text-blue-500 hover:underline">Forgot password?</a>
-            </div>
-            <div class="text-center text-sm text-gray-600">
-            </div>
-        </div>
             }
         </div>
     </div>
 
     <!-- Place scripts at the end of the body to ensure HTML is loaded first -->
     <script>
-    $(document).ready(function() {
-        $('#forgotPasswordLink').on('click', function(e) {
-            e.preventDefault(); // Prevent the default action of the link
-            $.ajax({
-                url: '@Url.Action("ForgotPasswordForm", "Account")', // Ensure this matches your controller and action names
-                type: 'GET',
-                success: function(response) {
-                    $('.container').html(response); // Replace the container content with the form
-                },
-                error: function() {
-                    alert('Failed to retrieve the form. Please try again later.'); // Basic error handling
-                }
-            });
-        });
-    });
-
-        $(document).ready(function () {
-            $('#forgotPasswordLink').on('submit', function (e) {
-                e.preventDefault();
+        $(document).ready(function() {
+            $('#forgotPasswordLink').off('click').on('click', function(e) {
+                e.preventDefault(); // Prevent the default action of the link
                 $.ajax({
-                    url: $(this).attr('action'),
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function (response) {
-                        // Replace the container's content with the confirmation view
-                        $('.container').html(response);
+                    url: '@Url.Action("ForgotPasswordForm", "Account")',
+                    type: 'GET',
+                    success: function(response) {
+                        $('.container').html(response); // Replace the container content with the form
                     },
-                    error: function () {
-                        alert('There was an error processing your request. Please try again.');
+                    error: function() {
+                        alert('Failed to retrieve the form. Please try again later.');
                     }
                 });
             });
         });
-
     </script>
 </body>
 </html>

@@ -23,14 +23,17 @@ namespace ResearchCommunityPlatform.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userInManager;
         private readonly IUserService _userService;
+        private readonly ILogger<AccountController> _logger;
 
 
 
-        public AccountController(SignInManager<User> signInManager, UserManager<User> userInManager, IUserService userService)
+
+        public AccountController(SignInManager<User> signInManager, UserManager<User> userInManager, IUserService userService, ILogger<AccountController> logger)
         {
             _signInManager = signInManager;
             _userInManager = userInManager;
             _userService = userService;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -280,7 +283,6 @@ namespace ResearchCommunityPlatform.Controllers
         }
 
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgetPasswordViewModel model)
@@ -296,18 +298,14 @@ namespace ResearchCommunityPlatform.Controllers
 
                 var token = await _userInManager.GeneratePasswordResetTokenAsync(user);
                 await _userService.SendResetPasswordEmailAsync(user.Email, token);
-
-                return RedirectToAction("ForgotPasswordConfirmation");
+                _logger.LogInformation("just about to redirect");
+                return PartialView("_ForgotPasswordConfirmation");
             }
 
-            return View(model);
+            return PartialView(model);
         }
 
-        [HttpGet]
-        public IActionResult ForgotPasswordConfirmation()
-        {
-            return View();
-        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
