@@ -289,16 +289,16 @@ namespace ResearchCommunityPlatform.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userInManager.FindByEmailAsync(model.Email);
-                if (user == null || !(await _userInManager.IsEmailConfirmedAsync(user)))
-                {
-                    // Optionally inform the user or just log internally
-                    return PartialView("ForgotPasswordConfirmation");
-                }
+                //var user = await _userInManager.FindByEmailAsync(model.Email);
+                //if (user == null || !(await _userInManager.IsEmailConfirmedAsync(user)))
+                //{
+                //    // Optionally inform the user or just log internally
+                //    return PartialView("ForgotPasswordConfirmation");
+                //}
 
-                var token = await _userInManager.GeneratePasswordResetTokenAsync(user);
-                await _userService.SendResetPasswordEmailAsync(user.Email, token);
-                _logger.LogInformation("just about to redirect");
+                //var token = await _userInManager.GeneratePasswordResetTokenAsync(user);
+                //await _userService.SendResetPasswordEmailAsync(user.Email, token);
+                //_logger.LogInformation("just about to redirect");
                 return PartialView("_ForgotPasswordConfirmation");
             }
 
