@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ResearchCommunityPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d3681abd69254e983b5179d67a299519f83a1a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df6bbf757511dabadd2a20bb610ca659cc5fbf6e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ResearchCommunityPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ResearchCommunityPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

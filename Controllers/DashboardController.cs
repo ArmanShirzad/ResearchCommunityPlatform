@@ -7,9 +7,21 @@ namespace ResearchCommunityPlatform.Controllers
     {
 
         [Authorize]
+        [HttpGet]
         public IActionResult MainDash()
         {
             return View();
         }
+        //[HttpPost]
+        //public IActionResult MainDash( UploadPubViewModel)
+        //{
+        //    return View();
+        //}
+        [HttpGet]
+        public IActionResult Create() 
+        {
+            return PartialView();
+        }
+
     }
 }

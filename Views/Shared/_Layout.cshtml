@@ -42,7 +42,8 @@
                             {
                                 <div class="hidden md:flex items-center space-x-1">
                                     <a asp-controller="Account" asp-action="SocialMediaLogin" asp-route-returnUrl="@Context.Request.Path" class="py-5 px-3 text-white">Communities</a>
-                                    <a asp-controller="Dashboard" asp-action="MainDash" class="py-5 px-3 text-white my-dashboard-link">My Dashboard</a>
+                                    @if (User.Identity.IsAuthenticated) { 
+                                        <a asp-controller="Dashboard" asp-action="MainDash" class="py-5 px-3 text-white my-dashboard-link">My Dashboard</a>}
                                 </div>
                             }
                         </div>

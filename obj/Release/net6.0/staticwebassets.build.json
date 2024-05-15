@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dr2VpiEC3BNzTHMJg9INoNFbA8FW06d8mVHlFAoVCg4=",
+  "Hash": "7JkusnG9qlwmJorIwn64WGV16tA91N7lCasUVn6Up9k=",
   "Source": "ResearchCommunityPlatform",
   "BasePath": "_content/ResearchCommunityPlatform",
   "Mode": "Default",
@@ -1288,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\Slider2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\css\\content.css",
+      "SourceId": "ResearchCommunityPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\",
+      "BasePath": "_content/ResearchCommunityPlatform",
+      "RelativePath": "css/content.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\content.css"
     },
     {
       "Identity": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\css\\Index-IndexPartial-ShowMoreBtnAndCite.css",

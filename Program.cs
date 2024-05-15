@@ -10,6 +10,11 @@ using ResearchCommunityPlatform.Services.UserSevice;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Diagnostics;
+using ResearchCommunityPlatform.Utilities;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.VisualBasic;
+using ResearchCommunityPlatform.Services.AuthorizationService;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,11 +23,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddIdentity<User, IdentityRole>()
      .AddEntityFrameworkStores<AppDbContext>()
      .AddDefaultTokenProviders();
+
 builder.Services.AddHttpContextAccessor();
 //builder.Services.AddSingleton<LinkGenerator>();
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddTransient<SetClaimsForExistingUsers>();
+
 builder.Services.AddLogging();
 
 builder.Services.AddAuthentication(options =>
@@ -57,6 +65,15 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 builder.Services.AddControllersWithViews(); 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("EditPolicy", policy =>
+        policy.Requirements.Add(new OperationAuthorizationRequirement { Name = AuthorizationConstants.UpdateOperationName }));
+    options.AddPolicy("ViewPolicy", policy =>
+           policy.Requirements.Add(new OperationAuthorizationRequirement { Name = AuthorizationConstants.ReadOperationName }));
+});
+builder.Services.AddSingleton<IAuthorizationHandler, PublicationAuthorizationHandler>();
+
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();

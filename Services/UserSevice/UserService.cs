@@ -10,6 +10,7 @@ using System.Security.Permissions;
 using NuGet.Common;
 using System.Net.Sockets;
 using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 namespace ResearchCommunityPlatform.Services.UserSevice
 {
     public class UserService
@@ -45,12 +46,13 @@ namespace ResearchCommunityPlatform.Services.UserSevice
 
         public async Task<RegistrationResult> RegisterUserAsync(RegisterViewModel model)
         {
-        
+   
             var user = new User { UserName = model.UserName, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
+               
                 return new RegistrationResult
                 {
                     Success = false,

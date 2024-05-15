@@ -53,7 +53,7 @@ namespace ResearchCommunityPlatform.Controllers
                 {
                     ViewBag.state = $"welcom!, {model.UserName}";
                     return View("socialmedialogin", model);
-
+                        
                 }
             }
             else
@@ -61,7 +61,7 @@ namespace ResearchCommunityPlatform.Controllers
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(model);
             }
-            return View(model);
+         return    RedirectToAction("Index", "Home");
         }
         // External login action
         [HttpPost]
@@ -349,6 +349,15 @@ namespace ResearchCommunityPlatform.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult GetBook() 
+        {
+            return View();
+        }     [HttpGet]
+        public IActionResult GetContent() 
+        {
+            return View();
+        }
 
         #endregion
     }

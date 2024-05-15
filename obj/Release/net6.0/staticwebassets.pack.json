@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\SwiperJs.css"
     },
     {
+      "Id": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\css\\content.css",
+      "PackagePath": "staticwebassets\\css\\content.css"
+    },
+    {
       "Id": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
