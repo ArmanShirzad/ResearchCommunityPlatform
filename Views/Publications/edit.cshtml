@@ -1,0 +1,82 @@
+﻿@model ResearchCommunityPlatform.Models.AuthorizePublicationViewModel
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="PublicationId" />
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DOI"></label>
+        <input asp-for="DOI" class="form-control" />
+        <span asp-validation-for="DOI" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Authors</label>
+        <div id="authors-list">
+            @for (int i = 0; i < Model.Authors.Count; i++)
+            {
+                <div class="input-group mb-3">
+                    <input asp-for="Authors[i]" class="form-control" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger remove-author">Remove</button>
+                    </span>
+                </div>
+            }
+        </div>
+        <button type="button" id="add-author" class="btn btn-secondary">Add Author</button>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateOfPublish"></label>
+        <input asp-for="DateOfPublish" class="form-control" />
+        <span asp-validation-for="DateOfPublish" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UploadDate"></label>
+        <input asp-for="UploadDate" class="form-control" />
+        <span asp-validation-for="UploadDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PubType"></label>
+        <select asp-for="PubType" class="form-control">
+            <option>Journal</option>
+            <option>Conference</option>
+        </select>
+        <span asp-validation-for="PubType" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Add author
+        document.getElementById("add-author").addEventListener("click", function() {
+            var authorsList = document.getElementById("authors-list");
+            var index = authorsList.children.length;
+            var div = document.createElement("div");
+            div.className = "input-group mb-3";
+            div.innerHTML = `
+                <input name="Authors[${index}]" class="form-control" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-danger remove-author">Remove</button>
+                </span>
+            `;
+            authorsList.appendChild(div);
+        });
+
+        // Remove author
+        document.getElementById("authors-list").addEventListener("click", function(e) {
+            if (e.target && e.target.classList.contains("remove-author")) {
+                e.target.closest(".input-group").remove();
+            }
+        });
+    });
+</script>

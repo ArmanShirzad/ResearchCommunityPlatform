@@ -17,6 +17,7 @@ namespace ResearchCommunityPlatform.Controllers
             _logger = logger;
             _context = context;
         }
+        [HttpGet]
 
         public async Task<IActionResult> Index(int page = 1)
         {

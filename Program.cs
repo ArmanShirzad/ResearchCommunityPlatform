@@ -1,84 +1,108 @@
 using Microsoft.EntityFrameworkCore;
-using T =Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using ResearchCommunityPlatform.Models;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
-using System.Security.Principal;
-using ResearchCommunityPlatform.Services.UserSevice;
+using ResearchCommunityPlatform.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Diagnostics;
 using ResearchCommunityPlatform.Utilities;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
-using Microsoft.VisualBasic;
 using ResearchCommunityPlatform.Services.AuthorizationService;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using ResearchCommunityPlatform.Services.UserSevice;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure services
 builder.Services.AddDbContext<AppDbContext>(options =>
-           options.UseSqlServer(builder.Configuration.GetConnectionString("MainConnection")));
-builder.Services.AddIdentity<User, IdentityRole>()
-     .AddEntityFrameworkStores<AppDbContext>()
-     .AddDefaultTokenProviders();
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MainConnection")));
 
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddHttpContextAccessor();
-//builder.Services.AddSingleton<LinkGenerator>();
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddTransient<SetClaimsForExistingUsers>();
-
 builder.Services.AddLogging();
 
+// Configure Authentication and Authorization
 builder.Services.AddAuthentication(options =>
 {
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    //options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 })
-
-.AddCookie(options =>
+.AddCookie( "CookieAuthScheme",options =>
 {
-    //options.LoginPath = "/Account/ExternalLogin";
-    options.LoginPath = "/Account/socialmedialogin"; // Point to your login action
+    options.LoginPath = "/Account/socialmedialogin";
     options.AccessDeniedPath = "/Account/socialmedialogin";
-    options.Cookie.HttpOnly = true;  // Make the cookie inaccessible to client-side scripts
-    options.Cookie.SameSite = SameSiteMode.None;  // Necessary for OAuth2 redirection
+    options.Cookie.HttpOnly = true;
+    options.Cookie.Expiration = TimeSpan.FromHours(1);
+    options.Cookie.SameSite = SameSiteMode.Lax;  // Necessary for OAuth2 redirection
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  // Enforce HTTPS
 })
 .AddGoogle(googleOptions =>
-
 {
     googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    googleOptions.CorrelationCookie.SameSite = SameSiteMode.None;
+    googleOptions.CorrelationCookie.SameSite = SameSiteMode.Lax;
     googleOptions.CorrelationCookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
-    options.Cookie.SameSite = SameSiteMode.None;  // Necessary for OAuth2   
+    options.Cookie.SameSite = SameSiteMode.None;  // Necessary for OAuth2
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  // Enforce HTTPS
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);  // Set a reasonable timeout
+    options.SlidingExpiration = true;  // Enable slid
 });
-builder.Services.AddControllersWithViews(); 
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+// Configure Authorization
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("EditPolicy", policy =>
         policy.Requirements.Add(new OperationAuthorizationRequirement { Name = AuthorizationConstants.UpdateOperationName }));
     options.AddPolicy("ViewPolicy", policy =>
-           policy.Requirements.Add(new OperationAuthorizationRequirement { Name = AuthorizationConstants.ReadOperationName }));
+        policy.Requirements.Add(new OperationAuthorizationRequirement { Name = AuthorizationConstants.ReadOperationName }));
 });
-builder.Services.AddSingleton<IAuthorizationHandler, PublicationAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, PublicationAuthorizationHandler>();
+builder.Services.AddScoped<AuthorizationService>();
 
+// Configure Logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
-var app = builder.Build();  
 
+var app = builder.Build();
+
+// Seed Data
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var userManager = services.GetRequiredService<UserManager<User>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        await SeedData.Initialize(services, userManager, roleManager);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
+
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler(errorApp =>
@@ -93,15 +117,19 @@ if (!app.Environment.IsDevelopment())
         });
     });
 }
+
 app.UseHttpLogging();
-app.UseHttpsRedirection();  
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();    
-app.UseDeveloperExceptionPage();
+app.UseAuthentication();
 app.UseAuthorization();
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
 
 app.MapControllerRoute(
     name: "default",

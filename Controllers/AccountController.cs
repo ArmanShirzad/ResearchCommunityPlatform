@@ -51,17 +51,20 @@ namespace ResearchCommunityPlatform.Controllers
                 var state = await _userService.LoginUserAsync(model.UserName, model.Password);
                 if (state)
                 {
-                    ViewBag.state = $"welcom!, {model.UserName}";
-                    return View("socialmedialogin", model);
-                        
+                    ViewBag.state = $"welcome!, {model.UserName}";
                 }
+                else
+                {
+
+                ViewBag.state = $"incorrect username or password please try again";
+                }
+                return View("socialmedialogin", model);
             }
             else
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(model);
             }
-         return    RedirectToAction("Index", "Home");
         }
         // External login action
         [HttpPost]

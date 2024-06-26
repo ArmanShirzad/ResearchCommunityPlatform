@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YDC2ZPj9wi24L8q2ViSz0HR7oJ4QCs+bLAlrYXJrNR0QkSelyOoD0nk9MOp712flQdpE1iJ/TESO7z72mzsfGw==",
+  "dgSpecHash": "7oY36hw0AkZcy01CuHdt4I+85WMmM7XZoehctcJuEuYjKWCB9H0vd5ATox/LF2bYpgpIrXDPXstPZGlulqqSUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj",
+  "projectFilePath": "C:\\Users\\a_shi\\Source\\Repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a_shi\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\a_shi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

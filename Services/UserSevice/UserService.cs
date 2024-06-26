@@ -11,6 +11,7 @@ using NuGet.Common;
 using System.Net.Sockets;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+using System.Collections.Generic;
 namespace ResearchCommunityPlatform.Services.UserSevice
 {
     public class UserService
@@ -118,6 +119,18 @@ namespace ResearchCommunityPlatform.Services.UserSevice
                 var user = await _userManager.FindByNameAsync(username);
                 if (user != null)
                 {
+                    
+                    //claim stuff
+                    var claims = new List<Claim>
+                    {
+                        new Claim (ClaimTypes.Name, username),
+                        new Claim (ClaimTypes.NameIdentifier, user.Id),
+                        new Claim ("password", user.PasswordHash)
+
+                    };
+                    var claimIdentity = new ClaimsIdentity (claims, "CookieAuthScheme"); 
+                    var principal = new ClaimsPrincipal(claimIdentity);
+
                     var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
                     return result.Succeeded;
                 }

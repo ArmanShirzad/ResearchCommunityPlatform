@@ -47,13 +47,15 @@
 <body>
     <div class="bg-gradient-to-r from-[#006d77] to-[#83c5be] h-screen flex justify-center items-center">
         <div class="container bg-white p-8 rounded shadow-md">
-            <h2 class="text-2xl font-bold mb-8 text-center">Log in to account</h2>
             @if (ViewBag.state != null)
             {
                 <p>@ViewBag.state</p>
-            }
+                <div class="text-center text-sm text-gray-600">
+                    <a asp-controller="Home" asp-action="Index" class="text-blue-500 hover:underline">Go to Home</a>
+                </div> }
             else
             {
+                <h2 class="text-2xl font-bold mb-8 text-center">Log in to account</h2>
 
                 <div class="flex flex-col space-y-4">
                     <!-- ORCID button -->
@@ -113,6 +115,7 @@
     <!-- Place scripts at the end of the body to ensure HTML is loaded first -->
     <script>
         $(document).ready(function() {
+            // Event handler for 'Forgot password?' link
             $('#forgotPasswordLink').off('click').on('click', function(e) {
                 e.preventDefault(); // Prevent the default action of the link
                 $.ajax({
@@ -126,6 +129,48 @@
                     }
                 });
             });
+
+            @*// Event handler for 'back to home' link
+            $('#backtohome').off('click').on('click', function(e) {
+                    e.preventDefault();
+                    if ('@ViewBag.state' !== '') {
+                        $.ajax({
+     @if (User.Identity.IsAuthenticated)
+                {
+                    <text>url: '@Url.Action("MainDash", "Dashboard")',</text>
+                }
+                else
+                {
+                    // Provide a fallback or an alternative action if needed
+                    <text>url: '@Url.Action("Index", "Home")',</text>
+                }
+                        type: 'GET',
+                        success: function(response) {
+                            $('.container').html(response); // Replace the container content with the form
+                         // Adjust the URL as needed
+                        },
+                        error: function() {
+                            alert('Failed to retrieve the form. Please try again later.');
+                        }
+                    });
+                }
+            });*@
+
+            // Function to handle redirect timer
+            function startRedirectTimer(seconds, url) {
+                var countdownElement = $('<p>You will be redirected in <span id="countdown">' + seconds + '</span> seconds.</p>');
+                $('.container').append(countdownElement);
+
+                var countdownInterval = setInterval(function () {
+                    var remainingSeconds = parseInt($('#countdown').text());
+                    $('#countdown').text(--remainingSeconds);
+
+                    if (remainingSeconds <= 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = url; // Redirect the user
+                    }
+                }, 1000);
+            }
         });
     </script>
 </body>

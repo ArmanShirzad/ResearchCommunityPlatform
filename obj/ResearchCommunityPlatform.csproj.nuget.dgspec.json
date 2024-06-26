@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj": {}
+    "C:\\Users\\a_shi\\Source\\Repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj": {
+    "C:\\Users\\a_shi\\Source\\Repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj",
+        "projectUniqueName": "C:\\Users\\a_shi\\Source\\Repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj",
         "projectName": "ResearchCommunityPlatform",
-        "projectPath": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj",
+        "projectPath": "C:\\Users\\a_shi\\Source\\Repos\\ResearchCommunityPlatform\\ResearchCommunityPlatform.csproj",
         "packagesPath": "C:\\Users\\a_shi\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\a_shi\\source\\repos\\ResearchCommunityPlatform\\obj\\",
         "projectStyle": "PackageReference",

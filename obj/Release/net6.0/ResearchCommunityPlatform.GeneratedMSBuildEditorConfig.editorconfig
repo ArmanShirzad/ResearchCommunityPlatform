@@ -9,83 +9,91 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ResearchCommunityPlatform
 build_property.RootNamespace = ResearchCommunityPlatform
-build_property.ProjectDir = C:\Users\a_shi\source\repos\ResearchCommunityPlatform\
+build_property.ProjectDir = C:\Users\a_shi\Source\Repos\ResearchCommunityPlatform\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\a_shi\source\repos\ResearchCommunityPlatform
+build_property.MSBuildProjectDirectory = C:\Users\a_shi\Source\Repos\ResearchCommunityPlatform
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/GetBook.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/GetBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxHZXRCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/GetContent.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/GetContent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxHZXRDb250ZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/ResetPassword.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/Signup.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/SocialMediaLogin.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/SocialMediaLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTb2NpYWxNZWRpYUxvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/_ForgotPasswordConfirmation.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/_ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxfRm9yZ290UGFzc3dvcmRDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Account/_ForgotPasswordForm.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Account/_ForgotPasswordForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxfRm9yZ290UGFzc3dvcmRGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Dashboard/MainDash.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Dashboard/MainDash.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1haW5EYXNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Home/Index.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Dashboard/_create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9jcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Home/Privacy.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Home/Publication.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Home/Publication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQdWJsaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Home/_PublicationPartial.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Home/_PublicationPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUHVibGljYXRpb25QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Shared/Error.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Publications/edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGljYXRpb25zXGVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Shared/_SharedResourcesTest.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Shared/_SharedResourcesTest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaGFyZWRSZXNvdXJjZXNUZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/_ViewImports.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/_ViewStart.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a_shi/source/repos/ResearchCommunityPlatform/Views/Shared/_Layout.cshtml]
+[C:/Users/a_shi/Source/Repos/ResearchCommunityPlatform/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-33abz0e2d4
